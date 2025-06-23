@@ -6,11 +6,11 @@
 #    By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/18 16:08:39 by mcardoso          #+#    #+#              #
-#    Updated: 2025/06/18 16:12:06 by mcardoso         ###   ########.fr        #
+#    Updated: 2025/06/23 18:21:55 by mcardoso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
 # compiler e flags
 CC = cc
@@ -20,7 +20,8 @@ FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIB = ar -rcs
 
-SRCS =  push_swap.c
+SRCS =  push_swap.c parsing_utils.c utils.c list_utils.c stack_a.c \
+		stack_b.c
 
 # trasforma .c para .o
 OBJS = $(SRCS:.c=.o)
@@ -29,8 +30,8 @@ all: ${NAME}
 
 # o touch cria um ficheiro bonus para o make saber que ja foi adicionado
 ${NAME}: ${OBJS}
-		${LIB} ${NAME} ${OBJS}
-		@echo "Files .o created"
+		${CC} ${FLAGS} ${OBJS} -o ${NAME}
+		@echo "Executable created"
 
 # compila qualquer .c em .o ($< ficheiro de entrada .c, $@ de saida)
 %.o: %.c
