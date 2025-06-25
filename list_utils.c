@@ -6,13 +6,13 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:36:21 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/23 14:46:22 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:24:35 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Cria um novo nó com o conteúdo fornecido
+// Create a new node with the provided content
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*ele;
@@ -26,7 +26,7 @@ t_list	*ft_lstnew(void *content)
 	return (ele);
 }
 
-// Adiciona um nó no fim da lista
+// Adds a node to the end of the list
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
@@ -47,7 +47,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	new->next = NULL;
 }
 
-// Retorna o último nó da lista
+// Returns the last node of the list
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*temp;
@@ -60,7 +60,7 @@ t_list	*ft_lstlast(t_list *lst)
 	return (temp);
 }
 
-// Adiciona um nó no início da lista
+// Adds a node in the begining of the list
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
@@ -72,7 +72,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-// Conta quantos nós existem na lista
+// Counts how many nodes exist on the list
 int	ft_lstsize(t_list *lst)
 {
 	t_list	*tmp;

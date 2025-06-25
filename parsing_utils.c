@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:11:16 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/23 18:14:11 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/06/25 14:59:41 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,24 @@ int	is_valid_number(char *str)
 	i = 0;
 	if (!str || !*str)
 		return (0);
-	if ((str[i] == '-' || str[i] == '+') && str[i + 1])
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]))
 		i++;
 	while (str[i])
 	{
-		if ((str[i] == '-' || str[i] == '+') \
-			&& (!str[i + 1] || str[i + 1] < '0' || str[i + 1] > '9'))
+		if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]) \
+			&& str[i - 1] == ' ')
+			i++;
+		else if (ft_isdigit(str[i]) || str[i] == ' ')
+			i++;
+		else
 			return (0);
-		i++;
 	}
 	return (1);
 }
-
 
 int	check_duplicates(t_list *lst, int nbr)
 {
@@ -70,4 +76,3 @@ int	split_and_convert(const char *arg, t_list **stack)
 	}
 	return (1);
 }
-

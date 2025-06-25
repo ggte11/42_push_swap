@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:42:59 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/23 17:41:48 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/06/24 17:44:38 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ int		ft_lstsize(t_list *lst);
 //utils
 int		ft_isdigit(int c);
 size_t	count_words(const char *str, char sep);
-int		split_and_convert(const char *arg, t_list **stack);
+
+//Parsing Utils
+int	is_valid_number(char *str);
+int	split_and_convert(const char *arg, t_list **stack);
 
 #endif
