@@ -6,11 +6,38 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/25 15:26:18 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:59:01 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void print_value (t_list *a, t_list *b) // delete
+{
+	printf("\nA\tB");
+	printf("\n");
+	while (a != NULL || b != NULL)
+	{
+		if (a)
+		{
+			printf("%d", (int)a->content);
+			a = a->next;
+		}
+		else
+			printf("   ");
+		printf("\t   ");
+		if (b)
+		{
+			printf("%d\n", (int)b->content);
+			b = b->next;
+		}
+		else
+			printf("\n");
+	}
+	printf("\n");
+	printf("--------------------------------\n");
+	fflush(stdout);
+}
 
 int	parsing_input(int argc, char **argv, t_list **stack)
 {
@@ -53,10 +80,12 @@ int	main(int argc, char **argv)
 	}
 	if (check_if_sorted(stack_a))
 		return (write(2, "sorted\n", 7));
-	while (stack_a)
-	{
-		printf("%d\n", (int)(long)(stack_a->content));
-		stack_a = stack_a->next;
-	}
-	return (0);
+	swap_a(&stack_a);
+	print_value(stack_a, stack_b);
+	// while (stack_a)
+	// {
+	// 	printf("%d\n", (int)(long)(stack_a->content));
+	// 	stack_a = stack_a->next;
+	// }
+	// return (0);
 }

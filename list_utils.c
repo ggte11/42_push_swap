@@ -6,14 +6,14 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:36:21 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/24 16:24:35 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:47:07 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Create a new node with the provided content
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*ele;
 

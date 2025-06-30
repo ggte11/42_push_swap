@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:11:16 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/25 14:59:41 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:48:26 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	split_and_convert(const char *arg, t_list **stack)
 			i++;
 		if (!arg[i])
 			break ;
-		if (arg[i] == '-' || arg[i] == '+')
+		if ((arg[i] == '-' || arg[i] == '+') && ft_isdigit(arg[i + 1]))
 			if (arg[i++] == '-')
 				sign *= -1;
 		while (ft_isdigit(arg[i]))
@@ -72,7 +72,7 @@ int	split_and_convert(const char *arg, t_list **stack)
 		result *= sign;
 		if (result > INT_MAX || result < INT_MIN || check_duplicates(*stack, result))
 			return (0);
-		ft_lstadd_back(stack, ft_lstnew((void *)(long)(result)));
+		ft_lstadd_back(stack, ft_lstnew(result));
 	}
 	return (1);
 }
