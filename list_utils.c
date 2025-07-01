@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:36:21 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/26 17:47:07 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/01 19:27:38 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_list	*ft_lstnew(int content)
 	if (!ele)
 		return (NULL);
 	ele->content = content;
-	ele->next = NULL;
-	ele->previous = NULL;
+	ele->down = NULL;
+	ele->up = NULL;
 	return (ele);
 }
 
@@ -36,15 +36,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!*lst)
 	{
 		*lst = new;
-		new->previous = NULL;
+		new->up = NULL;
 	}
 	else
 	{
 		last = ft_lstlast(*lst);
-		last->next = new;
-		new->previous = last;
+		last->down = new;
+		new->up = last;
 	}
-	new->next = NULL;
+	new->down = NULL;
 }
 
 // Returns the last node of the list
@@ -55,8 +55,8 @@ t_list	*ft_lstlast(t_list *lst)
 	if (!lst)
 		return (NULL);
 	temp = lst;
-	while (temp->next)
-		temp = temp->next;
+	while (temp->down)
+		temp = temp->down;
 	return (temp);
 }
 
@@ -65,10 +65,10 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;
-	new->next = *lst;
-	new->previous = NULL;
+	new->down = *lst;
+	new->up = NULL;
 	if (*lst)
-		(*lst)->previous = new;
+		(*lst)->up = new;
 	*lst = new;
 }
 
@@ -84,7 +84,7 @@ int	ft_lstsize(t_list *lst)
 	i = 0;
 	while (tmp)
 	{
-		tmp = tmp->next;
+		tmp = tmp->down;
 		i++;
 	}
 	return (i);

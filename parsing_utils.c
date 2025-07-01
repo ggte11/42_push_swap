@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:11:16 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/26 17:48:26 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/01 19:27:17 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-int	check_duplicates(t_list *lst, int nbr)
+int	check_duplicates(t_list *last, int nbr)
 {
-	while (lst)
+	while (last)
 	{
-		if ((long)lst->content == (long)nbr)
+		if ((long)last->content == (long)nbr)
 			return (1);
-		lst = lst->next;
+		last = last->down;
 	}
 	return (0);
 }

@@ -6,38 +6,11 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/26 17:59:01 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/01 19:54:18 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void print_value (t_list *a, t_list *b) // delete
-{
-	printf("\nA\tB");
-	printf("\n");
-	while (a != NULL || b != NULL)
-	{
-		if (a)
-		{
-			printf("%d", (int)a->content);
-			a = a->next;
-		}
-		else
-			printf("   ");
-		printf("\t   ");
-		if (b)
-		{
-			printf("%d\n", (int)b->content);
-			b = b->next;
-		}
-		else
-			printf("\n");
-	}
-	printf("\n");
-	printf("--------------------------------\n");
-	fflush(stdout);
-}
 
 int	parsing_input(int argc, char **argv, t_list **stack)
 {
@@ -55,11 +28,11 @@ int	parsing_input(int argc, char **argv, t_list **stack)
 
 int	check_if_sorted(t_list *stack)
 {
-	while(stack->next)
+	while(stack->down)
 	{
-		if (stack->content > stack->next->content)
+		if (stack->content > stack->down->content)
 			return (0);
-		stack = stack->next;
+		stack = stack->down;
 	}
 	return (1);
 }
@@ -80,12 +53,35 @@ int	main(int argc, char **argv)
 	}
 	if (check_if_sorted(stack_a))
 		return (write(2, "sorted\n", 7));
-	swap_a(&stack_a);
+	if ((ft_lstsize(stack_a)) == 3)
+		sort_three(&stack_a);
 	print_value(stack_a, stack_b);
-	// while (stack_a)
-	// {
-	// 	printf("%d\n", (int)(long)(stack_a->content));
-	// 	stack_a = stack_a->next;
-	// }
-	// return (0);
+}
+	
+
+void	print_value(t_list *a, t_list *b) // delete
+{
+	printf("\nA\tB");
+	printf("\n");
+	while (a != NULL || b != NULL)
+	{
+		if (a)
+		{
+			printf("%d", (int)a->content);
+			a = a->down;
+		}
+		else
+			printf("   ");
+		printf("\t");
+		if (b)
+		{
+			printf("%d\n", (int)b->content);
+			b = b->down;
+		}
+		else
+			printf("\n");
+	}
+	printf("\n");
+	printf("--------------------------------\n");
+	fflush(stdout);
 }

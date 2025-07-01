@@ -6,7 +6,7 @@
 #    By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/18 16:08:39 by mcardoso          #+#    #+#              #
-#    Updated: 2025/06/23 18:21:55 by mcardoso         ###   ########.fr        #
+#    Updated: 2025/07/01 19:23:11 by mcardoso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,14 @@ RM = rm -f
 LIB = ar -rcs
 
 SRCS =  push_swap.c parsing_utils.c utils.c list_utils.c stack_a.c \
-		stack_b.c
+		stack_b.c stack_both.c sorting_utils.c
 
 # trasforma .c para .o
 OBJS = $(SRCS:.c=.o)
 
 all: ${NAME}
 
-# o touch cria um ficheiro bonus para o make saber que ja foi adicionado
+# o touch cria um ficheiro para o make saber que ja foi adicionado
 ${NAME}: ${OBJS}
 		${CC} ${FLAGS} ${OBJS} -o ${NAME}
 		@echo "Executable created"
