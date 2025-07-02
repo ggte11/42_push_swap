@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:44:30 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/01 20:13:09 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:56:18 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,52 @@ void	sort_three(t_list **stack)
 	}
 }
 
-void	normalize_numbers(t_list **stack_a, t_list **stack_b, int size, \
-		int divide)
+void	normalize_numbers(t_list *stack)
 {
-	t_range	data;
+	int		i;
+	t_list	*current;
+	t_list	*compare;
 
+	current = stack;
+	while (current)
+	{
+		i = 0;
+		compare = stack;
+		while (compare)
+		{
+			if (compare->content < current->content)
+				i++;
+			compare = compare->down;
+		}
+		current->index = i;
+		current = current->down;
+	}
+}
+
+void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
+{
+	int	i;
+	int	limit;
+	t_list	*top;
+
+	i = 0;
+	limit = chunk_size;
+	while(*stack_a)
+	{
+		top = *stack_a;
+		if (top->index < limit)
+		{
+			push_b(stack_a, stack_b, 1);
+			i++;
+			if (i == limit)
+				limit += chunk_size;
+		}
+		else
+			rotate_a(stack_a, 1);
+	}
+}
+
+void	push_b(t_list **stack_a, t_list **stack_b, int chunk_size)
+{
 	
 }
