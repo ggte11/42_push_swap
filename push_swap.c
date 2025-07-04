@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/01 19:54:18 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:48:19 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc == 1)
-		return (write(2 ,"Error\n", 6), 1);
+	if (argc < 2)
+		return (0);
 	if (!parsing_input(argc, argv, &stack_a))
 	{
 		write(2 ,"Error\n", 6);
@@ -55,6 +55,8 @@ int	main(int argc, char **argv)
 		return (write(2, "sorted\n", 7));
 	if ((ft_lstsize(stack_a)) == 3)
 		sort_three(&stack_a);
+	normalize_numbers(stack_a);
+	push_chunks(&stack_a, &stack_b, 5);
 	print_value(stack_a, stack_b);
 }
 	
@@ -67,7 +69,7 @@ void	print_value(t_list *a, t_list *b) // delete
 	{
 		if (a)
 		{
-			printf("%d", (int)a->content);
+			printf("%d", (int)a->index);
 			a = a->down;
 		}
 		else
@@ -75,7 +77,7 @@ void	print_value(t_list *a, t_list *b) // delete
 		printf("\t");
 		if (b)
 		{
-			printf("%d\n", (int)b->content);
+			printf("%d\n", (int)b->index);
 			b = b->down;
 		}
 		else
