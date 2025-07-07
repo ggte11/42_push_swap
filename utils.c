@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:47:56 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/06/23 17:45:51 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:32:09 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,18 @@ size_t	count_words(const char *str, char sep)
 		i++;
 	}
 	return (count);
+}
+
+int	find_max_index(t_list *stack)
+{
+	int	max;
+
+	max = stack->index;
+	while(stack)
+	{
+		if (stack->index > max)
+			max = stack->index;
+		stack = stack->down;
+	}
+	return (max);
 }

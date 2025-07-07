@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:44:30 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/04 19:50:11 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:23:19 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,34 @@ void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
 		}
 		else
 			rotate_a(stack_a, 1);
+	}
+}
+
+void	push_back_b(t_list **stack_a, t_list **stack_b)
+{
+	int		max;
+	int		pos;
+
+	while (*stack_b)
+	{
+		max = find_max_index(*stack_b);
+		pos = 0;
+		while ((*stack_b))
+		{
+			if ((*stack_b)->index > max)
+			{
+				max = (*stack_b)->index;
+				pos = 0;
+			}
+			else
+				pos++;
+			(*stack_b) = (*stack_b)->down;
+		}
+		while ((*stack_b)->index != max)
+			if (pos <= ft_lstsize(*stack_b) / 2)
+				rotate_b(stack_b, 1);
+			else
+				reverse_rotate_b(stack_b, 1);
+		push_a(stack_a, stack_b, 1);
 	}
 }

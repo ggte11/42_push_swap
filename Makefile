@@ -6,7 +6,7 @@
 #    By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/18 16:08:39 by mcardoso          #+#    #+#              #
-#    Updated: 2025/07/01 19:23:11 by mcardoso         ###   ########.fr        #
+#    Updated: 2025/07/07 14:25:40 by mcardoso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -f
 LIB = ar -rcs
 
 SRCS =  push_swap.c parsing_utils.c utils.c list_utils.c stack_a.c \
-		stack_b.c stack_both.c sorting_utils.c
+		stack_b.c stack_both.c sorting_utils.c sorting_utils2.c sorting_b.c
 
 # trasforma .c para .o
 OBJS = $(SRCS:.c=.o)

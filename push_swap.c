@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/04 18:48:19 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/07 19:39:16 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!parsing_input(argc, argv, &stack_a))
-	{
-		write(2 ,"Error\n", 6);
-		return (1);
-	}
+		return (write(2 ,"Error\n", 6), 1);
 	if (check_if_sorted(stack_a))
-		return (write(2, "sorted\n", 7));
-	if ((ft_lstsize(stack_a)) == 3)
-		sort_three(&stack_a);
+		return (0);
+	choose_sort(&stack_a, &stack_b, 5);
 	normalize_numbers(stack_a);
 	push_chunks(&stack_a, &stack_b, 5);
 	print_value(stack_a, stack_b);

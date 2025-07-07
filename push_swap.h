@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:42:59 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/04 18:25:15 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/07 19:46:13 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct s_list
 }					t_list;
 
 // main
-int	parsing_input(int argc, char **argv, t_list **stack);
+int		parsing_input(int argc, char **argv, t_list **stack);
+int		check_if_sorted(t_list *stack);
 
 // list utils
 t_list	*ft_lstnew(int content);
@@ -41,6 +42,7 @@ int		ft_lstsize(t_list *lst);
 // utils
 int		ft_isdigit(int c);
 size_t	count_words(const char *str, char sep);
+int		find_max_index(t_list *stack);
 
 //Parsing Utils
 int		is_valid_number(char *str);
@@ -67,6 +69,15 @@ void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 void	sort_three(t_list **stack);
 void	normalize_numbers(t_list *stack);
 void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size);
+void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk_size);
+void	push_back_b(t_list **stack_a, t_list **stack_b);
+
+// sorting_utils2
+void	push_decider(t_list **stack_a, t_list **stack_b, int size);
+void	choose_sort(t_list **stack_a, t_list **stack_b, int divider);
+int		top_cost(t_list *stack, int idx);
+int		bottom_cost(t_list *stack, int idx);
+int		push_cost(t_list *stack, int idx);
 
 // to delete
 void	print_value(t_list *a, t_list *b);
