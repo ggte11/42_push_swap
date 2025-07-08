@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:42:59 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/07 19:46:13 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:37:39 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_list
 // main
 int		parsing_input(int argc, char **argv, t_list **stack);
 int		check_if_sorted(t_list *stack);
+void	free_stack(t_list **stack);
+int		apropriate_divider(int size);
 
 // list utils
 t_list	*ft_lstnew(int content);
@@ -79,7 +81,11 @@ int		top_cost(t_list *stack, int idx);
 int		bottom_cost(t_list *stack, int idx);
 int		push_cost(t_list *stack, int idx);
 
-// to delete
-void	print_value(t_list *a, t_list *b);
+// sorting_b
+void	push_b_down(t_list **stack_a, t_list **stack_b, int idx);
+void	push_b_up(t_list **stack_a, t_list **stack_b, int idx);
+void	push_b_down_rev(t_list **stack_a, t_list **stack_b, int idx);
+void	push_b_up_rev(t_list **stack_a, t_list **stack_b, int idx);
+void	organize_four(t_list **stack_a, t_list **stack_b);
 
 #endif
