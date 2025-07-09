@@ -6,7 +6,7 @@
 #    By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/18 16:08:39 by mcardoso          #+#    #+#              #
-#    Updated: 2025/07/07 14:25:40 by mcardoso         ###   ########.fr        #
+#    Updated: 2025/07/09 19:17:36 by mcardoso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 # compiler e flags
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 # apagar ficheiros e cria ficheiros .a
 RM = rm -f

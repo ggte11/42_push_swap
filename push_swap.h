@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:42:59 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/08 16:37:39 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/09 19:49:44 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_lstsize(t_list *lst);
 // utils
 int		ft_isdigit(int c);
 size_t	count_words(const char *str, char sep);
-int		find_max_index(t_list *stack);
+void	push_my_chunks(t_list **stack_a, t_list **stack_b, int divider);
 
 //Parsing Utils
 int		is_valid_number(char *str);
@@ -71,7 +71,7 @@ void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 void	sort_three(t_list **stack);
 void	normalize_numbers(t_list *stack);
 void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size);
-void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk_size);
+void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk1, int chunk2, int chunklimit);
 void	push_back_b(t_list **stack_a, t_list **stack_b);
 
 // sorting_utils2
@@ -87,5 +87,8 @@ void	push_b_up(t_list **stack_a, t_list **stack_b, int idx);
 void	push_b_down_rev(t_list **stack_a, t_list **stack_b, int idx);
 void	push_b_up_rev(t_list **stack_a, t_list **stack_b, int idx);
 void	organize_four(t_list **stack_a, t_list **stack_b);
+
+// delete
+void	print_value(t_list *a, t_list *b);
 
 #endif

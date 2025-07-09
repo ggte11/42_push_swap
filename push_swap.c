@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/08 16:38:51 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/09 20:26:36 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,34 @@ int	apropriate_divider(int size)
 	return (divider);
 }
 
+// delete
+// void	print_value(t_list *a, t_list *b)
+// {
+// 	printf("\nA\tB");
+// 	printf("\n");
+// 	while (a != NULL || b != NULL)
+// 	{
+// 		if (a)
+// 		{
+// 			printf("%d", (int)a->content);
+// 			a = a->down;
+// 		}
+// 		else
+// 			printf("   ");
+// 		printf("\t   ");
+// 		if (b)
+// 		{
+// 			printf("%d\n", (int)b->content);
+// 			b = b->down;
+// 		}
+// 		else
+// 			printf("\n");
+// 	}
+// 	printf("\n");
+// 	printf("--------------------------------\n");
+// 	fflush(stdout);
+// }
+
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -83,7 +111,7 @@ int	main(int argc, char **argv)
 		free_stack(&stack_a);
 		return (0);
 	}
-	i = apropriate_divider(ft_lstsize(stack_a));
-	choose_sort(&stack_a, &stack_b, 1);
+	choose_sort(&stack_a, &stack_b, i);
+	// print_value(stack_a, stack_b);
 	return (free_stack(&stack_a), free_stack(&stack_b), 0);
 }

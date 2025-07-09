@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:44:30 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/07 14:23:19 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/09 20:01:20 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,21 +71,23 @@ void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
 	}
 }
 
-void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
+void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk1, int chunk2, int chunklimit)
 {
-	int	chunk1;
-	int	chunk2;
+	int	i;
 
-	chunk1 = chunk_size;
-	chunk2 = chunk_size * 2;
-	while (*stack_a)
+	i = 0;
+	while (ft_lstsize(*stack_a) > 3 && i < (chunk2 - chunk1) * 2)
 	{
-		if ((*stack_a)->index < chunk1)
-			push_b(stack_a, stack_b, 1);
-		else if ((*stack_a)->index < chunk2)
+		if ((*stack_a)->index < chunk1 && (*stack_a)->index < chunklimit)
 		{
 			push_b(stack_a, stack_b, 1);
 			rotate_b(stack_b, 1);
+			i++;
+		}
+		else if ((*stack_a)->index <= chunk2 && (*stack_a)->index < chunklimit)
+		{
+			push_b(stack_a, stack_b, 1);
+			i++;
 		}
 		else
 			rotate_a(stack_a, 1);
@@ -94,29 +96,16 @@ void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
 
 void	push_back_b(t_list **stack_a, t_list **stack_b)
 {
-	int		max;
-	int		pos;
+	int	max;
 
-	while (*stack_b)
+	while (ft_lstsize (*stack_b) > 0)
 	{
-		max = find_max_index(*stack_b);
-		pos = 0;
-		while ((*stack_b))
-		{
-			if ((*stack_b)->index > max)
-			{
-				max = (*stack_b)->index;
-				pos = 0;
-			}
-			else
-				pos++;
-			(*stack_b) = (*stack_b)->down;
-		}
-		while ((*stack_b)->index != max)
-			if (pos <= ft_lstsize(*stack_b) / 2)
-				rotate_b(stack_b, 1);
-			else
-				reverse_rotate_b(stack_b, 1);
-		push_a(stack_a, stack_b, 1);
+		max = ft_lstsize(*stack_b);
+		if (max == (*stack_b)->index)
+			push_a(stack_a, stack_b, 1);
+		else if (top_cost(*stack_b, max) < bottom_cost(*stack_b, max))
+			rotate_b(stack_b, 1);
+		else
+			reverse_rotate_b(stack_b, 1);
 	}
 }

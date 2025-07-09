@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:21:21 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/01 20:07:16 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:43:39 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	rotate_b(t_list **stack_b, int print)
 	t_list	*first_node;
 	t_list	*last_node;
 
-	if (!*stack_b)
+	if (!*stack_b || ft_lstsize(*stack_b) < 2)
 		return ;
 	first_node = *stack_b;
 	last_node = ft_lstlast(*stack_b);

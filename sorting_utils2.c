@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:09:09 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/08 16:24:37 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/09 20:06:33 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void	choose_sort(t_list **stack_a, t_list **stack_b, int divider)
 	else
 	{
 		normalize_numbers(*stack_a);
-		if (!check_if_sorted(*stack_a))
+		divider = apropriate_divider(size);
+		push_my_chunks(stack_a, stack_b, divider);
+		if(!check_if_sorted(*stack_a))
 			sort_three(stack_a);
 		while (ft_lstsize(*stack_b) > 0)
 			push_decider(stack_a, stack_b, ft_lstsize(*stack_b));
