@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: martim <martim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:36:44 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/09 20:26:21 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/09 23:22:57 by martim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	push_b_up(t_list **stack_a, t_list **stack_b, int idx)
 		}
 		else
 			rotate_b(stack_b, 1);
+		//print_value(*stack_a, *stack_b);
 	}
 }
 
@@ -67,6 +68,7 @@ void	push_b_up_rev(t_list **stack_a, t_list **stack_b, int idx)
 		}
 		else
 			rotate_b(stack_b, 1);
+		//print_value(*stack_a, *stack_b);
 	}
 }
 
