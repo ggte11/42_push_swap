@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: martim <martim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:09:09 by mcardoso          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/07/17 18:28:44 by mcardoso         ###   ########.fr       */
+=======
+/*   Updated: 2025/07/09 23:17:44 by martim           ###   ########.fr       */
+>>>>>>> 8ef88d2dd978b5365537e4921b953cefb54a6bf6
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +82,17 @@ int	top_cost(t_list *stack, int idx)
 
 int	bottom_cost(t_list *stack, int idx)
 {
+<<<<<<< HEAD
 	int		cost;
 	t_list	*last;
 
 	cost = 0;
+=======
+	int	cost;
+	t_list	*last;
+
+	cost = 1;
+>>>>>>> 8ef88d2dd978b5365537e4921b953cefb54a6bf6
 	last = ft_lstlast(stack);
 	while (last && last->index != idx)
 	{

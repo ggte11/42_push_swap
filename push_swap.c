@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: martim <martim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/07/17 16:17:52 by mcardoso         ###   ########.fr       */
+=======
+/*   Updated: 2025/07/09 23:31:16 by martim           ###   ########.fr       */
+>>>>>>> 8ef88d2dd978b5365537e4921b953cefb54a6bf6
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +70,7 @@ int	apropriate_divider(int size)
 }
 
 // delete
+<<<<<<< HEAD
 void print_value (t_list *a, t_list *b) // delete
 {
 	printf("\nA\tB");
@@ -92,6 +97,34 @@ void print_value (t_list *a, t_list *b) // delete
 	printf("--------------------------------\n");
 	fflush(stdout);
 }
+=======
+ void	print_value(t_list *a, t_list *b)
+ {
+ 	printf("\nA\tB");
+ 	printf("\n");
+ 	while (a != NULL || b != NULL)
+ 	{
+ 		if (a)
+		{
+ 			printf("%d", (int)a->index);
+ 			a = a->down;
+ 		}
+ 		else
+ 			printf("   ");
+ 		printf("\t   ");
+ 		if (b)
+ 		{
+ 			printf("%d\n", (int)b->index);
+ 			b = b->down;
+ 		}
+ 		else
+ 			printf("\n");
+ 	}
+ 	printf("\n");
+ 	printf("--------------------------------\n");
+ 	fflush(stdout);
+ }
+>>>>>>> 8ef88d2dd978b5365537e4921b953cefb54a6bf6
 
 int	main(int argc, char **argv)
 {
