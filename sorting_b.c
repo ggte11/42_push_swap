@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:36:44 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 16:11:18 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:19:38 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ void	push_b_up(t_list **stack_a, t_list **stack_b, int idx)
 			return ;
 		}
 		else
-		{
-			print_value (*stack_a, *stack_b);
 			rotate_b(stack_b, 1);
-		}
 	}
 }
 
@@ -69,10 +66,7 @@ void	push_b_up_rev(t_list **stack_a, t_list **stack_b, int idx)
 			return ;
 		}
 		else
-		{
-			print_value (*stack_a, *stack_b);
 			rotate_b(stack_b, 1);
-		}
 	}
 }
 

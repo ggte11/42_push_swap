@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:09:09 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 19:27:43 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:07:51 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,12 @@ void	push_decider(t_list **stack_a, t_list **stack_b)
 	if (!*stack_b)
 		return ;
 	max = ft_lstsize (*stack_b);
-	if(push_cost(*stack_b ,max) <= push_cost(*stack_b, max - 1))
-	{
-		if (top_cost(*stack_b, max) <= bottom_cost(*stack_b, max))
-			while ((*stack_b)->index != max)
-				rotate_b(stack_b, 1);
-		else
-			while ((*stack_b)->index != max)
-				reverse_rotate_b(stack_b, 1);
-	}
+	if (top_cost(*stack_b, max) <= bottom_cost(*stack_b, max))
+		while ((*stack_b)->index != max)
+			rotate_b(stack_b, 1);
 	else
-		if (top_cost(*stack_b, max - 1) >= bottom_cost(*stack_b, max - 1))
-			while ((*stack_b)->index != max - 1)
-				rotate_b(stack_b, 1);
-		else
-			while ((*stack_b)->index != max - 1)
-				reverse_rotate_b(stack_b, 1);
+		while ((*stack_b)->index != max)
+			reverse_rotate_b(stack_b, 1);
 	push_a(stack_a, stack_b, 1);
 }
 

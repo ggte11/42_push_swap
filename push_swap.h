@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:42:59 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 18:51:27 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:23:35 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ void	push_b_up_rev(t_list **stack_a, t_list **stack_b, int idx);
 void	organize_four(t_list **stack_a, t_list **stack_b);
 
 // delete
-void	print_value(t_list *a, t_list *b);
+//void	print_value(t_list *a, t_list *b);
 
 #endif
