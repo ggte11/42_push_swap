@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:42:59 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 20:23:35 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:27:30 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk1, int chun
 void	push_back_b(t_list **stack_a, t_list **stack_b);
 
 // sorting_utils2
-void	push_decider(t_list **stack_a, t_list **stack_b);
+void	push_decider(t_list **stack_a, t_list **stack_b, int size);
 void	choose_sort(t_list **stack_a, t_list **stack_b, int divider);
 int		top_cost(t_list *stack, int idx);
 int		bottom_cost(t_list *stack, int idx);

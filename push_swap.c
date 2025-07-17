@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 20:22:29 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:36:50 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	apropriate_divider(int size)
 	int	divider;
 
 	if (size > 400)
-		divider = 29;
+		divider = 30;
 	else if (size >= 100)
 		divider = 10;
 	else if (size >= 50)
