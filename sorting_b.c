@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martim <martim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:36:44 by mcardoso          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2025/07/17 16:11:18 by mcardoso         ###   ########.fr       */
-=======
-/*   Updated: 2025/07/09 23:22:57 by martim           ###   ########.fr       */
->>>>>>> 8ef88d2dd978b5365537e4921b953cefb54a6bf6
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +39,7 @@ void	push_b_up(t_list **stack_a, t_list **stack_b, int idx)
 		{
 			print_value (*stack_a, *stack_b);
 			rotate_b(stack_b, 1);
-<<<<<<< HEAD
 		}
-=======
-		//print_value(*stack_a, *stack_b);
->>>>>>> 8ef88d2dd978b5365537e4921b953cefb54a6bf6
 	}
 }
 
@@ -80,11 +72,7 @@ void	push_b_up_rev(t_list **stack_a, t_list **stack_b, int idx)
 		{
 			print_value (*stack_a, *stack_b);
 			rotate_b(stack_b, 1);
-<<<<<<< HEAD
 		}
-=======
-		//print_value(*stack_a, *stack_b);
->>>>>>> 8ef88d2dd978b5365537e4921b953cefb54a6bf6
 	}
 }
 

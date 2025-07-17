@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martim <martim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:44:30 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/09 23:30:20 by martim           ###   ########.fr       */
+/*   Updated: 2025/07/09 20:01:20 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ void	sort_three(t_list **stack)
 	int		second;
 	int		third;
 
-	
-	last = ft_lstlast(*stack);
-	if ((*stack)->content > (*stack)->down->content)
-		swap_a(stack, 1);
 	second = (*stack)->down->content;
+	last = ft_lstlast(*stack);
 	third = last->content;
+	if ((*stack)->content > second)
+		swap_a(stack, 1);
 	if (third < second && third < (*stack)->content)
 		reverse_rotate_a(stack, 1);
 	else if (third < second)
