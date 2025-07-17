@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/09 20:26:36 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 16:17:52 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,32 +66,32 @@ int	apropriate_divider(int size)
 }
 
 // delete
-// void	print_value(t_list *a, t_list *b)
-// {
-// 	printf("\nA\tB");
-// 	printf("\n");
-// 	while (a != NULL || b != NULL)
-// 	{
-// 		if (a)
-// 		{
-// 			printf("%d", (int)a->content);
-// 			a = a->down;
-// 		}
-// 		else
-// 			printf("   ");
-// 		printf("\t   ");
-// 		if (b)
-// 		{
-// 			printf("%d\n", (int)b->content);
-// 			b = b->down;
-// 		}
-// 		else
-// 			printf("\n");
-// 	}
-// 	printf("\n");
-// 	printf("--------------------------------\n");
-// 	fflush(stdout);
-// }
+void print_value (t_list *a, t_list *b) // delete
+{
+	printf("\nA\tB");
+	printf("\n");
+	while (a != NULL || b != NULL)
+	{
+		if (a)
+		{
+			printf("%d", (int)a->content);
+			a = a->down;
+		}
+		else
+			printf("   ");
+		printf("\t   ");
+		if (b)
+		{
+			printf("%d\n", (int)b->content);
+			b = b->down;
+		}
+		else
+			printf("\n");
+	}
+	printf("\n");
+	printf("--------------------------------\n");
+	fflush(stdout);
+}
 
 int	main(int argc, char **argv)
 {
@@ -112,6 +112,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	choose_sort(&stack_a, &stack_b, i);
-	// print_value(stack_a, stack_b);
+	print_value(stack_a, stack_b);
 	return (free_stack(&stack_a), free_stack(&stack_b), 0);
 }

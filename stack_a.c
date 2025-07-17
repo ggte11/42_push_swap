@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:21:09 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/01 20:06:50 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 16:38:21 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,9 @@ void	push_a(t_list **stack_a, t_list **stack_b, int print)
 		(*stack_a)->down = NULL;
 		(*stack_a)->up = NULL;
 	}
-	else
-	{
-		node->down = *stack_a;
-		(*stack_a)->up = node;
-		*stack_a = node;
-	}
+	node->down = *stack_a;
+	(*stack_a)->up = node;
+	*stack_a = node;
 	if (print)
 		write(1, "pa\n", 3);
 }

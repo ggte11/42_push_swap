@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:09:09 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/09 20:06:33 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/17 18:28:44 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,14 @@ int	top_cost(t_list *stack, int idx)
 
 int	bottom_cost(t_list *stack, int idx)
 {
-	int	cost;
+	int		cost;
+	t_list	*last;
 
 	cost = 0;
-	while (stack && stack->index != idx)
+	last = ft_lstlast(stack);
+	while (last && last->index != idx)
 	{
-		stack = stack->up;
+		last = last->up;
 		cost++;
 	}
 	return (cost);
