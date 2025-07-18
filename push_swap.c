@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 20:36:50 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/18 15:12:51 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	parsing_input(int argc, char **argv, t_list **stack)
 
 int	check_if_sorted(t_list *stack)
 {
-	while(stack->down)
+	while (stack->down)
 	{
 		if (stack->content > stack->down->content)
 			return (0);
@@ -36,9 +36,10 @@ int	check_if_sorted(t_list *stack)
 	}
 	return (1);
 }
+
 void	free_stack(t_list **stack)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	while (*stack)
 	{
@@ -97,7 +98,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int	i;
+	int		i;
 
 	i = 0;
 	stack_a = NULL;
@@ -105,7 +106,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!parsing_input(argc, argv, &stack_a))
-		return (write(2 ,"Error\n", 6), 1);
+		return (write(2, "Error\n", 6), 1);
 	if (check_if_sorted(stack_a))
 	{
 		free_stack(&stack_a);

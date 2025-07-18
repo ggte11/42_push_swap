@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:42:59 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 20:27:30 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/18 16:56:33 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ typedef struct s_list
 	int				content;
 	int				index;
 }					t_list;
+
+typedef struct s_chunklist
+{
+	int	max;
+	int	ch1;
+	int	ch2;
+}		t_chunklist;
+
 
 // main
 int		parsing_input(int argc, char **argv, t_list **stack);
@@ -71,8 +79,7 @@ void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 void	sort_three(t_list **stack);
 void	normalize_numbers(t_list *stack);
 void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size);
-void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk1, int chunk2, int chunklimit);
-void	push_back_b(t_list **stack_a, t_list **stack_b);
+void	push_double_chunks(t_list **stack_a, t_list **stack_b, t_chunklist *chunks);
 
 // sorting_utils2
 void	push_decider(t_list **stack_a, t_list **stack_b, int size);

@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:44:30 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/09 20:01:20 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/18 16:59:46 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
 	int	i;
 
 	i = 1;
-	while(i <= chunk_size)
+	while (i <= chunk_size)
 	{
 		if ((*stack_a)->index <= chunk_size)
 		{
@@ -71,41 +71,25 @@ void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
 	}
 }
 
-void	push_double_chunks(t_list **stack_a, t_list **stack_b, int chunk1, int chunk2, int chunklimit)
+void	push_double_chunks(t_list **stack_a, t_list **stack_b, t_chunklist *chunks)
 {
 	int	i;
-
+	
 	i = 0;
-	while (ft_lstsize(*stack_a) > 3 && i < (chunk2 - chunk1) * 2)
+	while (ft_lstsize(*stack_a) > 3 && i < (chunks->ch2 - chunks->ch1) * 2)
 	{
-		if ((*stack_a)->index < chunk1 && (*stack_a)->index < chunklimit)
+		if ((*stack_a)->index < chunks->ch1 && (*stack_a)->index < chunks->max)
 		{
 			push_b(stack_a, stack_b, 1);
 			rotate_b(stack_b, 1);
 			i++;
 		}
-		else if ((*stack_a)->index <= chunk2 && (*stack_a)->index < chunklimit)
+		else if ((*stack_a)->index <= chunks->ch2 && (*stack_a)->index < chunks->max)
 		{
 			push_b(stack_a, stack_b, 1);
 			i++;
 		}
 		else
 			rotate_a(stack_a, 1);
-	}
-}
-
-void	push_back_b(t_list **stack_a, t_list **stack_b)
-{
-	int	max;
-
-	while (ft_lstsize (*stack_b) > 0)
-	{
-		max = ft_lstsize(*stack_b);
-		if (max == (*stack_b)->index)
-			push_a(stack_a, stack_b, 1);
-		else if (top_cost(*stack_b, max) < bottom_cost(*stack_b, max))
-			rotate_b(stack_b, 1);
-		else
-			reverse_rotate_b(stack_b, 1);
 	}
 }

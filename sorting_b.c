@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:36:44 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 20:35:21 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/07/18 15:17:59 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	push_b_down_rev(t_list **stack_a, t_list **stack_b, int idx)
 			return ;
 		}
 		else
-			reverse_rotate_b(stack_b,1);
+			reverse_rotate_b(stack_b, 1);
 	}
 }
 
