@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:47:56 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/18 17:01:40 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:17:32 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ size_t	count_words(const char *str, char sep)
 
 void	push_my_chunks(t_list **stack_a, t_list **stack_b, int divider)
 {
-	t_chunklist chunks;
+	t_chunklist	chunks;
 
 	chunks.ch1 = divider;
 	chunks.ch2 = divider * 2;

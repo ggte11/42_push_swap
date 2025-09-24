@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:21:09 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/17 16:38:21 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/09/23 15:03:18 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,12 @@ void	push_a(t_list **stack_a, t_list **stack_b, int print)
 		(*stack_a)->down = NULL;
 		(*stack_a)->up = NULL;
 	}
-	node->down = *stack_a;
-	(*stack_a)->up = node;
-	*stack_a = node;
+	else
+	{
+		node->down = *stack_a;
+		(*stack_a)->up = node;
+		*stack_a = node;
+	}
 	if (print)
 		write(1, "pa\n", 3);
 }
@@ -58,7 +61,7 @@ void	rotate_a(t_list **stack_a, int print)
 	t_list	*first_node;
 	t_list	*last_node;
 
-	if (!*stack_a)
+	if (!*stack_a || !(*stack_a)->down)
 		return ;
 	first_node = *stack_a;
 	last_node = ft_lstlast(*stack_a);
@@ -76,9 +79,11 @@ void	reverse_rotate_a(t_list **stack_a, int print)
 {
 	t_list	*last_node;
 
-	if (!*stack_a)
+	if (!*stack_a || !(*stack_a)->down)
 		return ;
 	last_node = ft_lstlast(*stack_a);
+	if (!last_node->up)
+		return ;
 	last_node->up->down = NULL;
 	last_node->down = *stack_a;
 	(*stack_a)->up = last_node;

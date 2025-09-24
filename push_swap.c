@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:43:41 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/18 15:12:51 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/09/23 15:19:32 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	parsing_input(int argc, char **argv, t_list **stack)
 	while (i < argc)
 	{
 		if (!is_valid_number(argv[i]) || !split_and_convert(argv[i], stack))
+		{
+			free_stack(stack);
 			return (0);
+		}
 		i++;
 	}
 	return (1);
@@ -28,6 +31,8 @@ int	parsing_input(int argc, char **argv, t_list **stack)
 
 int	check_if_sorted(t_list *stack)
 {
+	if (!stack || !stack->down)
+		return (1);
 	while (stack->down)
 	{
 		if (stack->content > stack->down->content)
@@ -41,6 +46,8 @@ void	free_stack(t_list **stack)
 {
 	t_list	*temp;
 
+	if (!stack)
+		return ;
 	while (*stack)
 	{
 		temp = *stack;

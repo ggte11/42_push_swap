@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:21:21 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/09 18:43:39 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/09/23 14:40:05 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,11 @@ void	reverse_rotate_b(t_list **stack_b, int print)
 {
 	t_list	*last_node;
 
-	if (!*stack_b)
+	if (!*stack_b || !(*stack_b)->down)
 		return ;
 	last_node = ft_lstlast(*stack_b);
+	if (!last_node->up)
+		return ;
 	last_node->up->down = NULL;
 	last_node->down = *stack_b;
 	(*stack_b)->up = last_node;

@@ -6,7 +6,7 @@
 /*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:44:30 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/07/18 16:59:46 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/09/23 15:56:12 by mcardoso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,37 +54,36 @@ void	normalize_numbers(t_list *stack)
 	}
 }
 
-void	push_chunks(t_list **stack_a, t_list **stack_b, int chunk_size)
+void	optimal_rotate(t_list **stack_a, t_list **stack_b, t_chunklist *chunks)
 {
-	int	i;
-
-	i = 1;
-	while (i <= chunk_size)
+	push_b(stack_a, stack_b, 1);
+	if ((*stack_a)->index > chunks->ch2)
 	{
-		if ((*stack_a)->index <= chunk_size)
-		{
-			push_b(stack_a, stack_b, 1);
-			i++;
-		}
-		else
-			rotate_a(stack_a, 1);
+		rotate_both(stack_a, stack_b);
+		return ;
+	}
+	else
+	{
+		rotate_b(stack_b, 1);
+		return ;
 	}
 }
 
-void	push_double_chunks(t_list **stack_a, t_list **stack_b, t_chunklist *chunks)
+void	push_double_chunks(t_list **stack_a, t_list **stack_b
+		, t_chunklist *chunks)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ft_lstsize(*stack_a) > 3 && i < (chunks->ch2 - chunks->ch1) * 2)
 	{
-		if ((*stack_a)->index < chunks->ch1 && (*stack_a)->index < chunks->max)
+		if ((*stack_a)->index <= chunks->ch1 && (*stack_a)->index < chunks->max)
 		{
-			push_b(stack_a, stack_b, 1);
-			rotate_b(stack_b, 1);
+			optimal_rotate(stack_a, stack_b, chunks);
 			i++;
 		}
-		else if ((*stack_a)->index <= chunks->ch2 && (*stack_a)->index < chunks->max)
+		else if ((*stack_a)->index <= chunks->ch2
+			&& (*stack_a)->index < chunks->max)
 		{
 			push_b(stack_a, stack_b, 1);
 			i++;
