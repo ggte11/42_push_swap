@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcardoso <mcardoso@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: martim <martim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:44:30 by mcardoso          #+#    #+#             */
-/*   Updated: 2025/09/23 15:56:12 by mcardoso         ###   ########.fr       */
+/*   Updated: 2025/09/24 19:37:21 by martim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,28 @@
 
 void	sort_three(t_list **stack)
 {
-	t_list	*last;
-	int		second;
-	int		third;
+	int	pos1;
+	int	pos2;
+	int	pos3;
 
-	second = (*stack)->down->content;
-	last = ft_lstlast(*stack);
-	third = last->content;
-	if ((*stack)->content > second)
+	pos1 = (*stack)->content;
+	pos2 = (*stack)->down->content;
+	pos3 = (*stack)->down->down->content;;
+	if (pos1 > pos2 && pos1 < pos3)
 		swap_a(stack, 1);
-	if (third < second && third < (*stack)->content)
-		reverse_rotate_a(stack, 1);
-	else if (third < second)
+	else if (pos1 > pos2 && pos2 > pos3)
 	{
-		reverse_rotate_a(stack, 1);
 		swap_a(stack, 1);
+		reverse_rotate_a(stack, 1);
+	}
+	else if (pos1 > pos3 && pos2 < pos3)
+		rotate_a(stack, 1);
+	else if (pos1 < pos2 && pos1 > pos3)
+		reverse_rotate_a(stack, 1);
+	else if (pos1 < pos3 && pos2 > pos3)
+	{
+		swap_a(stack, 1);
+		rotate_a(stack, 1);
 	}
 }
 
